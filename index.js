@@ -37,11 +37,5 @@ app.use(auth.service); //register the route
 let auth_routes = require("./Server/API/route/AuthRoutes"); //importing route
 auth_routes(app); //register the route
 
-let post_routes = require("./Server/API/route/PostRoutes"); //importing route
-post_routes(app); //register the route
-
-let category_routes = require("./Server/API/route/CategoryRoutes"); //importing route
-category_routes(app); //register the route
-
 http.listen(port);
 console.log("API is listening on port: " + port);
