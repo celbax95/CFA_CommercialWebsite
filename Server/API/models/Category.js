@@ -4,14 +4,13 @@ const uniqueValidator = require("mongoose-unique-validator");
 const Schema = mongoose.Schema;
 
 const categorySchema = new Schema({
-  label: {
+  name: {
     type: String,
     required: true,
     unique: true,
   },
   description: {
     type: String,
-    required: true,
   },
 });
 

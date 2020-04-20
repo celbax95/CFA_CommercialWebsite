@@ -13,12 +13,13 @@ var OrderSchema = new Schema({
   price: {
     type: Number,
     required: true,
+    min: 0,
   },
   image: {
-    type: Image,
+    type: String,
     required: true,
   },
-  date: {
+  buyDate: {
     type: Date,
     default: Date.now,
     required: true,
