@@ -31,13 +31,13 @@ app.use(cors());
 const auth = require("./service/AuthService");
 app.use(auth.service);
 
-let auth_routes = require('./api/routes/AuthRoutes'); //importing route
+let auth_routes = require('./API/routes/UserRoutes'); //importing route
 auth_routes(app); //register the route
 
 let category_routes = require('./api/routes/CategoryRoutes'); //importing route
 category_routes(app); //register the route
 
-let articles_routes = require('./api/routes/ArticleRoutes'); //importing route
+let articles_routes = require('./API/routes/ItemRoutes'); //importing route
 articles_routes(app); //register the route
 
 http.listen(port);
