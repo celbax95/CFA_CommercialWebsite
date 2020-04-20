@@ -1,5 +1,5 @@
 "use strict";
-const auth = require("../service/AuthService");
+const auth = require("../../service/AuthService");
 
 exports.login = async function (req, res) {
   res.setHeader("Content-Type", "application/json");
@@ -7,11 +7,18 @@ exports.login = async function (req, res) {
     let user = auth.getUser(req.body.email);
 
     if (user == null) {
-      // TODO email pas enregistré
-      //return res.sendStatus(401);
+      return res.send(
+        JSON.stringify({
+          status: 401,
+          error: "Unknown mail",
+          response: {},
+        })
+      );
     }
 
-    if (req.body.password === auth.getEncryptedPassword(user.password)) {
+    let encryptedPassword = auth.getEncryptedPassword(user.password);
+
+    if (req.body.password === encryptedPassword) {
       let accessToken = auth.generateToken(user);
       return res.send(
         JSON.stringify({

@@ -23,7 +23,7 @@ const authenticateJWT = (req, res, next) => {
 };
 
 exports.service = (req, res, next) => {
-  if (req.method === "GET" || req.url === "/login") {
+  if (req.method === "POST" || req.url === "/login") {
     next();
     return;
   } else {
