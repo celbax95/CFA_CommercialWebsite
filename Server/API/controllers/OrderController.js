@@ -3,9 +3,9 @@
 var Order = require("../model/Order");
 
 exports.list_all_orders = function (req, res) {
-  Order.find({}, function (err, orderes) {
+  Order.find({}, function (err, orders) {
     if (err) res.send(err);
-    else res.json(orderes);
+    else res.json(orders);
   });
 };
 
