@@ -1,5 +1,5 @@
 "use strict";
-const auth = require("../service/AuthService");
+const auth = require("../../service/AuthService");
 
 exports.login = async function (req, res) {
   res.setHeader("Content-Type", "application/json");
