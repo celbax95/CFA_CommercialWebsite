@@ -1,21 +1,10 @@
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 
-const accessTokenSecret = "cZzTiKZIhuN88XPaWXlUoPxt3ckCOsJn";
-const mdp = "pass";
-const admin = {
-  type: "Admin",
-  email: "a@a.a",
-  firstName: "Loic",
-  lastName: "Mace",
-};
+const accessTokenSecret = "TOKENdsMy1cktMklvaxXYzFHljZ82cvoLT";
 
-exports.getDefaultPassword = () => {
-  return crypto.createHash("sha512").update(mdp).digest("base64");
-};
-
-exports.getDefaultAdmin = () => {
-  return admin;
+exports.getEncryptedPassword = (password) => {
+  return crypto.createHash("sha512").update(password).digest("base64");
 };
 
 const authenticateJWT = (req, res, next) => {
@@ -42,6 +31,6 @@ exports.service = (req, res, next) => {
   }
 };
 
-exports.generateToken = () => {
-  return jwt.sign(admin, accessTokenSecret);
+exports.generateToken = (user) => {
+  return jwt.sign(user, accessTokenSecret);
 };
