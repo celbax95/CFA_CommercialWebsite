@@ -23,8 +23,10 @@ function AppRouteur(props) {
   }
   return (
     <Router>
-      <Header />
-      <Navbar />
+      <div className="headerParam">
+        <Navbar />
+        <Header />
+      </div>
       <Switch>
         <Route path="/">
           <Home />
