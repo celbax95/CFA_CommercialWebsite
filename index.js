@@ -34,7 +34,7 @@ app.use(cors());
 const auth = require("./Server/API/service/AuthService"); //importing route
 app.use(auth.service); //register the route
 
-let auth_routes = require("./Server/API/route/AuthRoutes"); //importing route
+let auth_routes = require("./Server/API/routes/AuthRoutes"); //importing route
 auth_routes(app); //register the route
 
 http.listen(port);
