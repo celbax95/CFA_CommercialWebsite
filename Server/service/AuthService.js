@@ -7,6 +7,11 @@ exports.getEncryptedPassword = (password) => {
   return crypto.createHash("sha512").update(password).digest("base64");
 };
 
+exports.getUserFromEmail = (email, funct) => {
+  const User = require("../API/models/User");
+  User.findOne({ email: email }, funct);
+};
+
 const authenticateJWT = (req, res, next) => {
   const token = req.headers.authorization;
   if (token) {
@@ -32,5 +37,5 @@ exports.service = (req, res, next) => {
 };
 
 exports.generateToken = (user) => {
-  return jwt.sign(user, accessTokenSecret);
+  return jwt.sign(JSON.stringify(user), accessTokenSecret);
 };

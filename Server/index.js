@@ -36,23 +36,27 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
+let useAuthentificate = true;
+
 // Authentification
 const auth = require("./service/AuthService"); //importing route
-app.use(auth.service); //register the route
+if (useAuthentificate) {
+  app.use(auth.service); //register the route
+}
 
 //Importing routes
-let auth_routes = require("./API/routes/AuthRoutes"),
-  user_routes = require("./API/routes/UserRoutes"),
-  item_routes = require("./API/routes/ItemRoutes"),
-  category_routes = require("./API/routes/CategoryRoutes"),
-  order_routes = require("./API/routes/OrderRoutes");
+let user_routes = require("./API/routes/UserRoutes");
+let item_routes = require("./API/routes/ItemRoutes");
+let category_routes = require("./API/routes/CategoryRoutes");
+let order_routes = require("./API/routes/OrderRoutes");
+let auth_routes = require("./API/routes/AuthRoutes");
 
 //Register routes
-auth_routes(app);
 user_routes(app);
 item_routes(app);
 category_routes(app);
 order_routes(app);
+auth_routes(app);
 
 http.listen(port);
 console.log("API is listening on port: " + port);

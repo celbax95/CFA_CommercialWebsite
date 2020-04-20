@@ -3,36 +3,42 @@ const auth = require("../../service/AuthService");
 
 exports.login = async function (req, res) {
   res.setHeader("Content-Type", "application/json");
+
   try {
-    let user = auth.getUser(req.body.email);
+    auth.getUserFromEmail(req.body.email, function (err, user) {
+      if (err || user == null) {
+        return res.send(
+          JSON.stringify({
+            status: 401,
+            error: "Unknown mail",
+            response: {},
+          })
+        );
+      } else {
+        // Utilisateur trouve
 
-    if (user == null) {
-      return res.send(
-        JSON.stringify({
-          status: 401,
-          error: "Unknown mail",
-          response: {},
-        })
-      );
-    }
+        // Pour utilisation locale
+        //req.body.password = auth.getEncryptedPassword(req.body.password);
 
-    let encryptedPassword = auth.getEncryptedPassword(user.password);
+        let encryptedPassword = auth.getEncryptedPassword(user.password);
 
-    if (req.body.password === encryptedPassword) {
-      let accessToken = auth.generateToken(user);
-      return res.send(
-        JSON.stringify({
-          status: 200,
-          error: null,
-          response: { token: accessToken, user: user },
-        })
-      );
-    } else {
-      return res.sendStatus(401);
-    }
+        if (req.body.password === encryptedPassword) {
+          let accessToken = auth.generateToken(user);
+          return res.send(
+            JSON.stringify({
+              status: 200,
+              error: null,
+              response: { token: accessToken, user: user },
+            })
+          );
+        } else {
+          return res.sendStatus(401);
+        }
+      }
+    });
   } catch (e) {
     console.log(e);
-    res.send(
+    return res.send(
       JSON.stringify({ status: 502, error: "Internal Error", response: [] })
     );
   }
