@@ -24,7 +24,7 @@ const itemSchema = new Schema({
         type: Schema.Types.ObjectId, ref: 'Category'
     },
     seller: {
-        type: Schema.Types.ObjectId, ref: 'User', required: true
+        type: Schema.Types.ObjectId, ref: 'User'
     }
 });
 

@@ -1,6 +1,6 @@
 "use strict";
 
-var Category = require("../model/Category");
+var Category = require("../models/Category");
 
 exports.list_all_categories = function (req, res) {
   Category.find({}, function (err, categories) {
@@ -10,7 +10,7 @@ exports.list_all_categories = function (req, res) {
 };
 
 exports.read_an_category = function (req, res) {
-  Category.findById(req.params.IdCategory, function (err, category) {
+  Category.findById(req.params.id, function (err, category) {
     if (err) res.send(err);
     else res.json(category);
   });
@@ -29,7 +29,7 @@ exports.create_an_category = function (req, res) {
 
 exports.update_an_category = function (req, res) {
   Category.findOneAndUpdate(
-    { _id: req.params._id },
+    { _id: req.params.id },
     req.body,
     { new: true },
     function (err, category) {
@@ -44,13 +44,14 @@ exports.update_an_category = function (req, res) {
 exports.delete_an_category = function (req, res) {
   Category.deleteOne(
     {
-      _id: req.params._id,
+      _id: req.params.id,
     },
     function (err, category) {
-      if (err) res.send(err);
-      else {
-        res.json({ message: "category sccessfully deleted" });
-      }
+      if
+        (err) res.send(err);
+      else
+        res.json({ message: "category successfully deleted" });
+
     }
   );
 };
