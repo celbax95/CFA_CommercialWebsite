@@ -36,7 +36,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-let useAuthentificate = true;
+let useAuthentificate = false;
 
 // Authentification
 const auth = require("./service/AuthService"); //importing route
