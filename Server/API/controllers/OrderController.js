@@ -1,56 +1,31 @@
 "use strict";
 
-var Order = require("../model/Order");
+const Order = require("../models/Order");
+const Item = require("../models/Item");
 
 exports.list_all_orders = function (req, res) {
-  Order.find({}, function (err, orders) {
+  Order.find({buyer: req.params.id}, function (err, orders) {
     if (err) res.send(err);
     else res.json(orders);
   });
 };
 
-exports.read_an_order = function (req, res) {
-  Order.findById(req.params.IdOrder, function (err, order) {
-    if (err) res.send(err);
-    else res.json(order);
-  });
-};
-
 exports.create_an_order = function (req, res) {
-  var new_order = new Order(req.body);
-  new_order.save(function (err, order) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(order);
+  Item.UpdateOne({_id: req.body.item}, {$set: {available: false}}, function (err, res) {
+    if (err)
+      console.log(err);
+    else{
+      const new_order = new Order({
+        item: req.body.item,
+        buyer: req.params.id
+      });
+      new_order.save(function (err, order) {
+        if (err) {
+          res.send(err);
+        } else {
+          res.json(order);
+        }
+      });
     }
   });
-};
-
-exports.update_an_order = function (req, res) {
-  Order.findOneAndUpdate(
-    { _id: req.params.IdOrder },
-    req.body,
-    { new: true },
-    function (err, order) {
-      if (err) res.send(err);
-      else {
-        res.json(order);
-      }
-    }
-  );
-};
-
-exports.delete_an_order = function (req, res) {
-  Order.deleteOne(
-    {
-      _id: req.params.IdOrder,
-    },
-    function (err, order) {
-      if (err) res.send(err);
-      else {
-        res.json({ message: "order sccessfully deleted" });
-      }
-    }
-  );
 };

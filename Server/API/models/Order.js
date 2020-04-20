@@ -1,15 +1,10 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-var OrderSchema = new Schema({
+const orderSchema = new Schema({
   item: {
     type: Schema.Types.ObjectId,
     ref: 'Item',
-    required: true,
-  },
-  seller: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
     required: true,
   },
   buyer: {
@@ -18,4 +13,5 @@ var OrderSchema = new Schema({
     required: true,
   },
 });
-module.exports = mongoose.model("Order", OrderSchema);
+
+module.exports = mongoose.model("Order", orderSchema);

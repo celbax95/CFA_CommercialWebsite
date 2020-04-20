@@ -2,7 +2,7 @@
 let Item = require("../models/Item");
 
 exports.list_all_items = function(req, res) {
-    Item.find({}, function (err, items) {
+    Item.find({available: true}, function (err, items) {
         if(err)
             res.send(err);
         res.json(items)

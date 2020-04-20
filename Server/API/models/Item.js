@@ -17,6 +17,9 @@ const itemSchema = new Schema({
     price: {
         type: Number, min: 0, required: true
     },
+    available: {
+        type: Boolean, default: true
+    },
     created: {
         type: Date, default: Date.now
     },
