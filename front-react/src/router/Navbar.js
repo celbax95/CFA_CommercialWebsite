@@ -64,6 +64,11 @@ function NavBar(props) {
       <a href="#" class="nav-item" active-color="blue">Categorie 2</a>
       <a href="#" class="nav-item" active-color="red" onclick="openForm()">Categorie 3</a>
       <a href="#" class="nav-item" active-color="rebeccapurple">Categorie 4</a>
+      {
+        props.isLogin ? (
+          <a href="#" class="nav-item" active-color="rebeccapurple">Mon profil</a>
+        ) : ( <a></a>)
+      }
       <span class="nav-indicator"></span>
     </nav>
   </div>
