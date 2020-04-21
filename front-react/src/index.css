@@ -1,4 +1,14 @@
-#root {
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300);
+
+body, #root{
+  height: 100%;
+  width: 100%;
+  font-family:"Roboto";
   display: flex;
   flex-direction: column;
+  background-color:#eee;
+  font-family:"Roboto";
+  color: rgb(66, 66, 66);
+  animation-name: fadeIn;
+  animation-duration: 2s;
 }
