@@ -40,12 +40,22 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 //------------------------------------------------------------------
-export default function NavBar(props) {
+function NavBar(props) {
   // return ;
+  
   return <div>
     <div class="" >
       <h1>Le P'tit Coin</h1>
-      <Link class="button draw-border" to="/login">Identification</Link>
+      {
+        !props.isLogin ? (
+          <Link class="button draw-border" to="/login">Identification</Link>
+        ) : (
+          <a class="button draw-border" onClick={() => {
+            props.disconnect();
+            window.location.href = "/Login";
+          }}>Loggout</a>
+        )
+      }
     </div>
     
     <nav class="nav">
@@ -58,3 +68,11 @@ export default function NavBar(props) {
     </nav>
   </div>
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    disconnect: () => {
+      dispatch(disconnect());
+    },
+  };
+};
+export default connect(null, mapDispatchToProps)(NavBar);

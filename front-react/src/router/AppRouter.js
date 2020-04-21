@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from "./Header";
 import Navbar from "./Navbar";
-import Login from "../screen/Login"
+import Login from "../screen/Login";
 import Home from "../screen/Home";
 
 import { connect } from "react-redux";
@@ -20,10 +20,16 @@ function AppRouteur(props) {
     //   window.location("/");
     // });
   }
+
+  let user = null;
+  try {
+    user = JSON.parse(props.user);
+  } catch(e){}
+
   return (
     <Router>
       <div className="headerParam">
-        <Navbar />
+        <Navbar isLogin={user} />
         <Header />
       </div>
       <Switch>
