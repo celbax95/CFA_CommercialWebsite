@@ -20,7 +20,8 @@ exports.login = async function (req, res) {
         // Pour utilisation locale
         //req.body.password = auth.getEncryptedPassword(req.body.password);
 
-        let encryptedPassword = auth.getEncryptedPassword(user.password);
+        // Stockage du mot de passe deja crypté
+        let encryptedPassword = user.password;
 
         if (req.body.password === encryptedPassword) {
           let accessToken = auth.generateToken(user);
