@@ -49,6 +49,8 @@ let user_routes = require("./API/routes/UserRoutes");
 let item_routes = require("./API/routes/ItemRoutes");
 let category_routes = require("./API/routes/CategoryRoutes");
 let order_routes = require("./API/routes/OrderRoutes");
+let address_routes = require("./API/routes/AddressRoutes");
+let review_routes = require ("./API/routes/ReviewRoutes");
 let auth_routes = require("./API/routes/AuthRoutes");
 
 //Register routes
@@ -56,6 +58,8 @@ user_routes(app);
 item_routes(app);
 category_routes(app);
 order_routes(app);
+address_routes(app);
+review_routes(app);
 auth_routes(app);
 
 http.listen(port);

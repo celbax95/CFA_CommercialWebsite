@@ -16,15 +16,14 @@ const userSchema = new Schema({
     required: true,
   },
   address: {
-    address: String,
-    city: String,
-    postalCode: Number,
+    type: Schema.Types.ObjectId,
+    ref: 'Address',
   },
   favorites: [
     {
-      items: { type: Schema.Types.ObjectId, ref: "Item" },
+      items: { type: Schema.Types.ObjectId, ref: 'Item' },
     },
-  ],
+  ]
 });
 
 module.exports = mongoose.model("User", userSchema);

@@ -14,7 +14,7 @@ const orderSchema = new Schema({
   },
   created: {
     type: Date,
-    require: true,
+    default: Date.now,
   },
 });
 
