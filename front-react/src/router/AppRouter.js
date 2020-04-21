@@ -29,7 +29,7 @@ function AppRouteur(props) {
       </div>
       <Switch>
         <Route path="/">
-          <Home />
+          <Home user={props.user} />
         </Route>
       </Switch>
     </Router>
