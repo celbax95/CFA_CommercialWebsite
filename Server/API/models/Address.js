@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const adresSchema = new Schema({
+const adrSchema = new Schema({
     addressLine: {
         type: String, required: true
     },
@@ -9,8 +9,8 @@ const adresSchema = new Schema({
         type: String, required: true
     },
     codePostal: {
-        type: String, required: true
+        type: Number, required: true
     }
 });
 
-module.exports = mongoose.model("Address", adresSchema);
+module.exports = mongoose.model("Address", adrSchema);

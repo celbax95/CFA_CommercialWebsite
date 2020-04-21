@@ -28,9 +28,7 @@ exports.delete_an_order = function (req, res) {
     Order.deleteOne({
         _id: req.params.id
     }, function (err, order) {
-        if (err)
-            res.send(err);
-        else
-            res.json({message: 'Order successfully deleted'});
+        if (err) res.send(err);
+        else res.json({message: 'Order successfully deleted'});
     });
 };

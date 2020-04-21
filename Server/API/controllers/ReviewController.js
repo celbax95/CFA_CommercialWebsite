@@ -4,8 +4,7 @@ const Review = require('../models/Review');
 
 exports.list_all_reviews = function (req, res) {
     Review.find({}, function(err, review) {
-        if (err)
-            res.send(err);
+        if (err) res.send(err);
         res.json(review)
     })
 };
@@ -13,18 +12,15 @@ exports.list_all_reviews = function (req, res) {
 exports.create_a_review = function (req, res) {
     const new_review= new Review(res.body);
     new_review.save(function(err, review) {
-        if (err)
-            res.send(err);
+        if (err) res.send(err);
         res.json(review);
     });
 };
 
 exports.read_a_review = function (req, res) {
     Review.findById(req.params.id, function (err, review) {
-        if (err)
-            res.send(err);
-        else
-            res.json(review);
+        if (err) res.send(err);
+        res.json(review);
     });
 };
 
@@ -35,9 +31,7 @@ exports.update_a_review = function (req, res) {
         {new: true},
         function (err, review) {
             if (err) res.send(err);
-            else {
-                res.json(review);
-            }
+            else res.json(review);
         }
     );
 };

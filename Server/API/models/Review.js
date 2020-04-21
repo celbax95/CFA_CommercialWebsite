@@ -3,13 +3,13 @@ const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
 
-    userWhoReview: {
+    user: {
         type: Schema.Types.ObjectId, required: true
     },
-    userReviewed: {
+    seller: {
         type: Schema.Types.ObjectId, required: true
     },
-    note: {
+    grade: {
         type: Number, min: 0, max: 10, required: true
     },
     date: {
