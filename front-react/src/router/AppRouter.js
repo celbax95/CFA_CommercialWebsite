@@ -3,11 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from "./Header";
 import Navbar from "./Navbar";
-
+import Login from "../screen/Login"
 import Home from "../screen/Home";
 
 import { connect } from "react-redux";
-
 import openSocket from "socket.io-client";
 import { BASE_URL } from "../service/api_services";
 
@@ -28,6 +27,7 @@ function AppRouteur(props) {
         <Header />
       </div>
       <Switch>
+        <Route path="/login" children={<Login/>} />
         <Route path="/">
           <Home />
         </Route>

@@ -8,7 +8,7 @@ import { disconnect } from "../store/actions/userActions";
 import { connect } from "react-redux";
 
 
-//TEST ----------------------------------------------------
+
 const indicator = document.querySelector('.nav-indicator');
 const items = document.querySelectorAll('.nav-item');
 
@@ -31,18 +31,30 @@ items.forEach((item, index) => {
   item.addEventListener('click', (e) => { handleIndicator(e.target) });
   item.classList.contains('is-active') && handleIndicator(item);
 });
+//TEST ----------------------------------------------------
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
 
-
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
 //------------------------------------------------------------------
 export default function NavBar(props) {
   // return ;
-  return <div><h1>Le P'tit Coin</h1><nav class="nav">
-    <a href="#" class="nav-item is-active" active-color="orange">Home</a>
-    <a href="#" class="nav-item" active-color="green">Categorie 1</a>
-    <a href="#" class="nav-item" active-color="blue">Categorie 2</a>
-    <a href="#" class="nav-item" active-color="red">Categorie 3</a>
-    <a href="#" class="nav-item" active-color="rebeccapurple">Categorie 4</a>
-    <span class="nav-indicator"></span>
-  </nav>
+  return <div>
+    <div class="" >
+      <h1>Le P'tit Coin</h1>
+      <Link class="button draw-border" to="/login">Identification</Link>
+    </div>
+    
+    <nav class="nav">
+      <a href="#" class="nav-item is-active" active-color="orange" >Home</a>
+      <a href="#" class="nav-item" active-color="green">Categorie 1</a>
+      <a href="#" class="nav-item" active-color="blue">Categorie 2</a>
+      <a href="#" class="nav-item" active-color="red" onclick="openForm()">Categorie 3</a>
+      <a href="#" class="nav-item" active-color="rebeccapurple">Categorie 4</a>
+      <span class="nav-indicator"></span>
+    </nav>
   </div>
 }
