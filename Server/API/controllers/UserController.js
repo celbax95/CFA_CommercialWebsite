@@ -1,6 +1,7 @@
 "use strict";
 
-const User = require("../models/User");
+const User = require("../models/User"),
+    crypt = require("../../service/AuthService");
 
 exports.list_all_users = function (req, res) {
     User.find({}, function (err, users) {
@@ -19,7 +20,9 @@ exports.read_an_user = function (req, res) {
 };
 
 exports.create_an_user = function (req, res) {
-    const new_user = new User(req.body);
+    let data = req.body;
+    data.password = crypt.getEncryptedPassword(data.password);
+    const new_user = new User(data);
     new_user.save(function (err, user) {
         if (err) {
             res.send(err);
