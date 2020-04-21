@@ -18,7 +18,7 @@ const userSchema = new Schema({
   address: {
     address: String,
     city: String,
-    zipCod: Number,
+    postalCode: Number,
   },
   favorites: [
     {
