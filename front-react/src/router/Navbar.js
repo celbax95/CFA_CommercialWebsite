@@ -53,17 +53,17 @@ function NavBar(props) {
           <a class="button draw-border" onClick={() => {
             props.disconnect();
             window.location.href = "/Login";
-          }}>Loggout</a>
+          }}>Déconnexion</a>
         )
       }
     </div>
     
     <nav class="nav">
-      <a href="#" class="nav-item is-active" active-color="orange" >Home</a>
-      <a href="#" class="nav-item" active-color="green">Categorie 1</a>
-      <a href="#" class="nav-item" active-color="blue">Categorie 2</a>
-      <a href="#" class="nav-item" active-color="red" onclick="openForm()">Categorie 3</a>
-      <a href="#" class="nav-item" active-color="rebeccapurple">Categorie 4</a>
+      <a href="#" class="nav-item is-active" active-color="orange" >Accueil</a>
+      <a href="#" class="nav-item" active-color="green">Catégorie 1</a>
+      <a href="#" class="nav-item" active-color="blue">Catégorie 2</a>
+      <a href="#" class="nav-item" active-color="red" onclick="openForm()">Catégorie 3</a>
+      <a href="#" class="nav-item" active-color="rebeccapurple">Catégorie 4</a>
       {
         props.isLogin ? (
           <a href="#" class="nav-item" active-color="rebeccapurple">Mon profil</a>

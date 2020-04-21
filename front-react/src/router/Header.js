@@ -9,9 +9,7 @@ export default function Header(props) {
       <div className="search">
         <input type="text"
           name="searchBar"
-          // value="{this.state.email}"
           placeholder="Rechercher"
-        // onChange={this.onChange.bind(this)}
         />
         <button class="btn draw-border">Rechercher</button>
       </div>

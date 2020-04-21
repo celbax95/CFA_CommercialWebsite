@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300);
 
 body, #root{
-  height: 100%;
-  width: 100%;
+  height: 0 auto;
+  width: 0 auto;
   font-family:"Roboto";
   display: flex;
   flex-direction: column;

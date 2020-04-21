@@ -35,11 +35,12 @@ class Login extends React.Component {
     render() {
         return (
             <div className="row" style={{ flexDirection: "column" }}>
-
+                <p> 
                 <form style={{
                     display: "flex", flexDirection: "column",
                     alignSelf: "center", margin: "60px 0px"
-                }}> <p>
+                }}>
+                    <div>
                         <h2>Identification</h2>
                         <input type="email"
                             name="email"
@@ -57,7 +58,8 @@ class Login extends React.Component {
                             Se connecter</button>
                         <br></br>
                         <Link className="close draw-border" to="./Home">Annuler</Link>
-                    </p> </form>
+                    </div>
+                </form></p>
             </div>
         );
     }
