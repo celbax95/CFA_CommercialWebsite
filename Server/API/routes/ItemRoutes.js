@@ -1,5 +1,5 @@
 'use strict';
-module.exports = function(app) {
+module.exports = function (app) {
     let itemController = require('../controllers/ItemController');
 
     app.route('/item')

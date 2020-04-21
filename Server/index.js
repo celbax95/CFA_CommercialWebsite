@@ -8,8 +8,8 @@ let express = require('express'),
     bodyParser = require('body-parser');
 
 //add socket to middleware
-app.use((req, res, next)=>{
-    res.locals.io= io;
+app.use((req, res, next) => {
+    res.locals.io = io;
     next();
     return;
 });
@@ -21,9 +21,9 @@ io.on('connection', function (socket) {
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb+srv://admin:tfKc6Q3IO8dnUzky@commercialwebsite-vsniv.mongodb.net/test?retryWrites=true&w=majority',
-    {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false});
+    {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -44,4 +44,4 @@ category_routes(app);
 order_routes(app);
 
 http.listen(port);
-console.log("API is listening on port: "+port);
+console.log("API is listening on port: " + port);
