@@ -8,7 +8,7 @@ import { disconnect } from "../store/actions/userActions";
 import { connect } from "react-redux";
 
 
-
+// Navbar
 const indicator = document.querySelector('.nav-indicator');
 const items = document.querySelectorAll('.nav-item');
 
@@ -31,43 +31,30 @@ items.forEach((item, index) => {
   item.addEventListener('click', (e) => { handleIndicator(e.target) });
   item.classList.contains('is-active') && handleIndicator(item);
 });
-//TEST ----------------------------------------------------
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-//------------------------------------------------------------------
+// End Navbar
+
 function NavBar(props) {
   // return ;
-  
+
   return <div>
-    <div class="" >
-      <h1>Le P'tit Coin</h1>
+    <div class="divTitle" >
+      <a href="/home" className="webTitle">Le P'tit Coin</a>
+    </div>
+    <nav class="nav">
+      <a href="/Home" class="nav-item is-active" active-color="orange" >Accueil</a>
       {
-        !props.isLogin ? (
-          <Link class="button draw-border" to="/login">Identification</Link>
-        ) : (
-          <a class="button draw-border" onClick={() => {
+        props.isLogin ? (
+          <a href="/#" class="nav-item">Vendre</a>
+        ) : (<a href="/signup" class="nav-item">Inscription</a>)
+      }
+      {
+        props.isLogin ? (
+          <a class="nav-item" onClick={() => {
             props.disconnect();
             window.location.href = "/Login";
           }}>Déconnexion</a>
-        )
-      }
-    </div>
-    
-    <nav class="nav">
-      <a href="#" class="nav-item is-active" active-color="orange" >Accueil</a>
-      <a href="#" class="nav-item" active-color="green">Catégorie 1</a>
-      <a href="#" class="nav-item" active-color="blue">Catégorie 2</a>
-      <a href="#" class="nav-item" active-color="red" onclick="openForm()">Catégorie 3</a>
-      <a href="#" class="nav-item" active-color="rebeccapurple">Catégorie 4</a>
-      {
-        props.isLogin ? (
-          <a href="#" class="nav-item" active-color="rebeccapurple">Mon profil</a>
-        ) : ( <a></a>)
+        ) : (<a href="/login" class="nav-item">Connexion</a>)
       }
       <span class="nav-indicator"></span>
     </nav>

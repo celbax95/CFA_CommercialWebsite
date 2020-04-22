@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { onConnect } from '../store/actions/userActions';
 import { login } from '../service/api_services';
-import './Login.css';
-import './Login.scss';
+import './SignUp.css';
+import './SignUp.scss';
 import { Link } from "react-router-dom";
+
 
 const crypto = require("crypto");
 
@@ -39,9 +40,15 @@ class Login extends React.Component {
                 <form style={{
                     display: "flex", flexDirection: "column",
                     alignSelf: "center", margin: "60px 0px"
-                }}>
+                }} className="SignUpForm">
                     <div>
-                        <h2>Identification</h2>
+                        <h2>Inscription</h2>
+                        <input type="text"
+                            name="nickname"
+                            value={this.state.email}
+                            placeholder="Nom d'utilisateur"
+                            onChange={this.onChange.bind(this)} />
+                        <br></br>
                         <input type="email"
                             name="email"
                             value={this.state.email}
@@ -54,8 +61,9 @@ class Login extends React.Component {
                             placeholder="Mot de passe"
                             onChange={this.onChange.bind(this)} />
                         <br></br>
+                        
                         <button className="bn draw-border" onClick={this.connect.bind(this)}>
-                            Se connecter</button>
+                            Inscription</button>
                         <br></br>
                         <Link className="close draw-border" to="./Home">Annuler</Link>
                     </div>

@@ -5,6 +5,26 @@ body {
   margin-bottom: 30px;
 }
 
+.divTitle{
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+
+
+.webTitle{
+  font-size: 4em;
+  color: rgb(66, 66, 66);
+  margin-top: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-family: 'Roboto';
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+
+
 /* Pop Up Login */
 
 body {font-family: Arial, Helvetica, sans-serif;}
