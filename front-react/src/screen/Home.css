@@ -1,0 +1,14 @@
+.homeContent {
+  margin: auto;
+  width: 80%;
+  padding-top: 50px;
+}
+
+.homeContent > .item {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.homeContent > .item:last-child {
+  margin-right: 0px;
+}

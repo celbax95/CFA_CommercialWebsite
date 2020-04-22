@@ -5,17 +5,13 @@ import "./ItemCard.css";
 export default function ItemCard(props) {
   let item = props.item;
 
-  console.log(props);
-
-  item = {
-    price: 100.2,
-    title: "ItemTitle",
-    state: "mauvais",
-    seller: { name: "JhonLeNon" },
-  };
+  console.log(item);
 
   return (
     <div
+      onClick={function () {
+        window.location = "/item/" + item._id;
+      }}
       className={"itemCard" + (props.className ? " " + props.className : "")}
     >
       <div className="itemCardContent">
@@ -34,7 +30,9 @@ export default function ItemCard(props) {
             <p className="state">{"Etat : " + item.state}</p>
           </div>
           <div className="rightColumn">
-            <p className="sellerName">{item.seller.name}</p>
+            <p className="sellerName">
+              {item.seller ? item.seller.name : "Unknown"}
+            </p>
           </div>
         </div>
       </div>
