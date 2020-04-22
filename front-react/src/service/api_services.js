@@ -1,7 +1,8 @@
 import axios from "axios";
+const BASE_URL = "http://localhost:3000";
+
 import { retrieveData, TOKENID } from "./LocalStorage";
 
-const BASE_URL = "http://localhost:3000";
 export {
   BASE_URL,
   login,
