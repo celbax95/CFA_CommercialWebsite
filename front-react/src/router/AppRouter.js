@@ -24,7 +24,7 @@ function AppRouteur(props) {
   let user = null;
   try {
     user = JSON.parse(props.user);
-  } catch(e){}
+  } catch (e) {}
 
   return (
     <Router>
@@ -33,7 +33,7 @@ function AppRouteur(props) {
         <Header />
       </div>
       <Switch>
-        <Route path="/login" children={<Login/>} />
+        <Route path="/login" children={<Login />} />
         <Route path="/">
           <Home />
         </Route>

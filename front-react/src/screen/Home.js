@@ -2,6 +2,9 @@ import React from "react";
 
 import { getRessources } from "../service/api_services";
 
+import ItemCard from "../component/ItemCard";
+import CategoryCard from "../component/CategoryCard";
+
 export default class Home extends React.Component {
   constructor(props) {
     super();
@@ -13,6 +16,12 @@ export default class Home extends React.Component {
   }
 
   render() {
-    return <div className="homeContent"></div>;
+    return (
+      <div className="homeContent">
+        <CategoryCard />
+        <div style={{ marginBottom: 50 }}></div>
+        <ItemCard />
+      </div>
+    );
   }
 }

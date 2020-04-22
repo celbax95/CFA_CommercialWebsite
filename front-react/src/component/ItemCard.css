@@ -1,0 +1,62 @@
+.itemCard * {
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+  font-family: "Roboto";
+  font-size: 10px;
+}
+
+.itemCard {
+  width: 150px;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 8px;
+  border: 0.5px solid gray;
+}
+
+.itemCard .top {
+  display: flex;
+}
+
+.itemCard .top .title {
+  font-size: 20px;
+  margin: 2px 0px 0px 5px;
+}
+
+.itemCard .middle {
+  display: flex;
+  margin-top: 8px;
+}
+
+.itemCard .middle img {
+  display: block;
+  width: 100%;
+  border: 0.5px solid black;
+}
+
+.itemCard .bottom {
+  display: flex;
+  flex-direction: row;
+  margin-top: 6px;
+}
+
+.itemCard .bottom .leftColumn {
+  flex: 1;
+}
+
+.itemCard .bottom .leftColumn .state {
+  margin-top: 3px;
+}
+
+.itemCard .bottom .rightColumn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.itemCard .bottom .rightColumn p {
+  align-self: flex-end;
+  width: 100%;
+  text-align: end;
+}
