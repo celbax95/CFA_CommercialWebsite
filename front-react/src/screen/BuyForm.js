@@ -1,6 +1,7 @@
 import React from "react";
-import "./Login.css";
-import "./Login.scss";
+import "./Editor.css";
+import "./Button.scss";
+import "./BuyForm.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import {
@@ -93,57 +94,65 @@ class BuyFormClass extends React.Component {
     return (
       <div className="buyForm">
         {this.state.item && (
-          <div className="buyFormContent">
-            <form>
-              <div className="top">
-                <h2>
-                  {"Formulaire d'achat de l'article suivant : \n" +
-                    this.state.item.title}
-                </h2>
+          <form className="buyForm">
+            <div className="top">
+              <h2>
+                {"Formulaire d'achat de l'article suivant : \n" +
+                  this.state.item.title}
+              </h2>
+            </div>
+            <div className="bottom">
+              <div className="bottomLeft">
+                <ItemCard item={this.state.item} />
               </div>
-              <div className="bottom">
-                <div className="bottomLeft">
-                  <ItemCard item={this.state.item} />
-                </div>
-                <div className="bottomRight">
-                  <input
-                    name="email"
-                    value={this.state.email}
-                    placeholder="Email"
-                    onChange={this.onChange.bind(this)}
-                  />
+              <div className="bottomRight">
+                <input
+                  type="text"
+                  name="email"
+                  value={this.state.email}
+                  placeholder="Email"
+                  onChange={this.onChange.bind(this)}
+                />
 
-                  <input
-                    name="address"
-                    value={this.state.address}
-                    placeholder="Adresse"
-                    onChange={this.onChange.bind(this)}
-                  />
+                <input
+                  type="text"
+                  name="address"
+                  value={this.state.address}
+                  placeholder="Adresse"
+                  onChange={this.onChange.bind(this)}
+                />
 
-                  <p className="buyInstructions">
-                    Après confirmation, ce formulaire sera étudié par
-                    l'administrateur.
-                    <br />
-                    Celui-ci vous contactera via votre adresse eMail afin de
-                    finaliser la transaction.
-                  </p>
+                <p className="buyInstructions">
+                  Après confirmation, ce formulaire sera étudié par
+                  l'administrateur.
+                  <br />
+                  Celui-ci vous contactera via votre adresse eMail afin de
+                  finaliser la transaction.
+                </p>
 
-                  {this.state.item.available ? (
-                    <button onClick={(e) => this.setItemUnavailable(e)}>
-                      Acheter
-                    </button>
-                  ) : (
-                    <button onClick={(e) => this.setItemAvailable(e)}>
-                      Annuler l'achat
-                    </button>
-                  )}
-                  <Link to="./Home">Annuler</Link>
-                </div>
-                {/* end bottomRight */}
+                {this.state.item.available ? (
+                  <button
+                    className="buy bn draw-border"
+                    onClick={(e) => this.setItemUnavailable(e)}
+                  >
+                    Acheter
+                  </button>
+                ) : (
+                  <button
+                    className="buy bn draw-border"
+                    onClick={(e) => this.setItemAvailable(e)}
+                  >
+                    Annuler l'achat
+                  </button>
+                )}
+                <Link className="close draw-border" to="/">
+                  Annuler
+                </Link>
               </div>
-              {/* end bottom */}
-            </form>
-          </div>
+              {/* end bottomRight */}
+            </div>
+            {/* end bottom */}
+          </form>
         )}
       </div>
     );
