@@ -5,6 +5,7 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Login from "../screen/Login";
 import Home from "../screen/Home";
+import Item from "../screen/Item";
 
 import { connect } from "react-redux";
 import openSocket from "socket.io-client";
@@ -34,6 +35,7 @@ function AppRouteur(props) {
       </div>
       <Switch>
         <Route path="/login" children={<Login/>} />
+        <Route path="/item/:id" children={<Item/>} />
         <Route path="/">
           <Home />
         </Route>

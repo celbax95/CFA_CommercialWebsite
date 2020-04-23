@@ -12,7 +12,7 @@ const itemSchema = new Schema({
         type: String
     },
     image: {
-        type: [String]
+        type: String
     },
     price: {
         type: Number, min: 0, required: true

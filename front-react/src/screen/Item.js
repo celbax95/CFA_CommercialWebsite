@@ -1,12 +1,12 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
-import PostPage from '../components/PostPage';
+import ItemPage from '../components/ItemPage';
 
-export default function Post(props) {
+export default function Item(props) {
     let { id } = useParams();
     return (
         <div className="row" style={{flexDirection:"column"}}>
-            <PostPage id={id}/>
+            <ItemPage id={id}/>
         </div>
     );
 }
