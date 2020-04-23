@@ -16,6 +16,14 @@ class BuyFormClass extends React.Component {
   constructor(props) {
     super(props);
 
+    if (!props.user) {
+      window.location = "/login";
+    }
+
+    if (!props.id) {
+      window.location = "/";
+    }
+
     this.state = {
       itemId: props.id,
       user: props.user,
@@ -36,18 +44,20 @@ class BuyFormClass extends React.Component {
         }
       });
 
-      getRessource("address", this.state.user.address).then((result) => {
-        if (result) {
-          this.setState({
-            address:
-              result.addressLine +
-              ", " +
-              result.codePostal +
-              ", " +
-              result.city,
-          });
-        }
-      });
+      if (this.state.user.address) {
+        getRessource("address", this.state.user.address).then((result) => {
+          if (result.addressLine) {
+            this.setState({
+              address:
+                result.addressLine +
+                ", " +
+                result.codePostal +
+                ", " +
+                result.city,
+            });
+          }
+        });
+      }
     }
   }
 

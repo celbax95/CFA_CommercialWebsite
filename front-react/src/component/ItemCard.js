@@ -5,7 +5,7 @@ import "./ItemCard.css";
 export default function ItemCard(props) {
   let item = props.item;
 
-  let image = "/logo192.png";
+  let image = "/imageNotFound.png";
   try {
     if (item.image[0]) {
       image = item.image[0];
@@ -15,7 +15,7 @@ export default function ItemCard(props) {
   return (
     <div
       onClick={function () {
-        window.location = "/item/" + item._id;
+        window.location = "/buy/" + item._id;
       }}
       className={"itemCard" + (props.className ? " " + props.className : "")}
     >
