@@ -11,6 +11,7 @@ import SignUp from "../screen/SignUp";
 import { connect } from "react-redux";
 import openSocket from "socket.io-client";
 import { BASE_URL } from "../service/api_services";
+import Post from "../screen/Post";
 
 function AppRouteur(props) {
   if (!props.user) {
@@ -37,6 +38,8 @@ function AppRouteur(props) {
       <Switch>
         <Route path="/login" children={<Login />} />
         <Route path="/signUp" children={<SignUp />} />
+        <Route path="/post/:id" children={<Post/>} />
+
         <Route path="/">
           <Route path="/user">
             <User isUser={user} />
