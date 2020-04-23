@@ -1,10 +1,8 @@
 import React from 'react';
 import { getRessource } from '../service/api_services';
 import { useParams } from "react-router-dom";
-import {Button, Card, CardContent, CardHeader, CardMedia, CardActions} from "@material-ui/core";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import Typography from "@material-ui/core/Typography";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
+import {Button, Card, CardContent, CardHeader, CardMedia, CardActions, ButtonGroup, Typography, CardActionArea} from "@material-ui/core";
+import './ItemPage.css';
 
 let parse = require('html-react-parser');
 
@@ -47,7 +45,7 @@ export default class ItemFullPage extends React.Component {
                             </CardContent>
                         </CardActionArea>
                         <CardActions style={{display: "flex", justifyContent: "space-between"}}>
-                            <ButtonGroup variant="text" aria-label="text primary button group">
+                            <ButtonGroup variant="text" >
                                 <Button onClick={function () {
                                     window.location = "/home";
                                 }}>
