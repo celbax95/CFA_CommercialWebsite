@@ -17,7 +17,7 @@ form {
     margin-left: 20px;
 }
 
-input[type="email"], input[type="password"], input[type="text"] {
+input[type="email"], input[type="password"], input[type="text"], input[type="number"] {
     width: 80%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -38,5 +38,17 @@ input[type="email"], input[type="password"], input[type="text"] {
 
 h2 {
     letter-spacing: 0.05em;
+<<<<<<< HEAD
     color: rgb(231, 132, 1);
+=======
+}
+
+label{
+    font-family: 'Roboto';
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(66, 66, 66);
+    letter-spacing: 0.05rem;
+    margin-right: 30px;
+>>>>>>> origin/venteform
 }
