@@ -11,7 +11,7 @@ exports.list_all_items = function (req, res) {
 exports.read_a_item = function (req, res) {
     Item.findById(req.params.id, function (err, item) {
         if (err) res.send(err);
-        res.json(item);
+        else res.json(item);
     });
 };
 

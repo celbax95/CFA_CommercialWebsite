@@ -2,6 +2,7 @@
 // npm install
 // npm i http socket.io
 // npm install node-sass
+// Si demandé : npm install --save-dev @babel/core @babel/node
 
 
 import React from "react";

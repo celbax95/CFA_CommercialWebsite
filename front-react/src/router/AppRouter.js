@@ -6,6 +6,8 @@ import Navbar from "./Navbar";
 import Login from "../screen/Login";
 import Home from "../screen/Home";
 import Item from "../screen/Item";
+import User from "../screen/UserProfil";
+import SignUp from "../screen/SignUp";
 
 import { connect } from "react-redux";
 import openSocket from "socket.io-client";
@@ -25,7 +27,7 @@ function AppRouteur(props) {
   let user = null;
   try {
     user = JSON.parse(props.user);
-  } catch(e){}
+  } catch (e) { }
 
   return (
     <Router>
@@ -36,7 +38,12 @@ function AppRouteur(props) {
       <Switch>
         <Route path="/login" children={<Login/>} />
         <Route path="/item/:id" children={<Item/>} />
+        <Route path="/login" children={<Login />} />
+        <Route path="/signUp" children={<SignUp />} />
         <Route path="/">
+          <Route path="/user">
+            <User isUser={user} />
+          </Route>
           <Home />
         </Route>
       </Switch>

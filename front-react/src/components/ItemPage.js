@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import {Button, Card, CardContent, CardHeader, CardMedia, CardActions} from "@material-ui/core";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Typography from "@material-ui/core/Typography";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
 
 let parse = require('html-react-parser');
 
@@ -30,7 +31,7 @@ export default class ItemFullPage extends React.Component {
         return (
             <div className="row" style={{flexDirection:"column"}}>
                 {this.state.selectedPost?
-                    <Card>
+                    <Card style={{ marginLeft: 200, marginRight: 200, marginTop: 20, marginBottom: 10}}>
                         <CardActionArea>
                             <CardContent>
                                 <img src={this.state.selectedPost.image}/>
@@ -45,13 +46,19 @@ export default class ItemFullPage extends React.Component {
                                 <span>Etat: {this.state.selectedPost.state}</span>
                             </CardContent>
                         </CardActionArea>
-                        <CardActions>
-                            <Button size="small" color="primary">
-                                Retour
-                            </Button>
-                            <Button size="small" color="primary">
-                                Commander
-                            </Button>
+                        <CardActions style={{display: "flex", justifyContent: "space-between"}}>
+                            <ButtonGroup variant="text" aria-label="text primary button group">
+                                <Button onClick={function () {
+                                    window.location = "/home";
+                                }}>
+                                    Retour
+                                </Button>
+                                <Button color="primary" onClick={function () {
+                                    window.location = "/buy/" + this.state.selectedPost._id;
+                                }}>
+                                    Commander
+                                </Button>
+                            </ButtonGroup>
                         </CardActions>
                     </Card>
 
