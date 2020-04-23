@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { getRessource } from "../service/api_services";
 import axios from "axios";
+import ItemCard from "../component/ItemCard";
 
 class BuyFormClass extends React.Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class BuyFormClass extends React.Component {
 
   componentDidMount() {
     getRessource("item", this.state.itemId).then((result) => {
-      console.log(result);
       if (result.title) {
         this.setState({ item: result });
       }
@@ -29,42 +29,38 @@ class BuyFormClass extends React.Component {
   render() {
     return (
       <div className="buyForm">
-        <div className="buyFormContent">
-          <form
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignSelf: "center",
-              margin: "60px 0px",
-              position: "static",
-            }}
-          >
-            <div>
-              <h2></h2>
-              <input
-                type="email"
-                name="email"
-                value={this.state.email}
-                placeholder="email"
-                onChange={this.onChange.bind(this)}
-              />
-              <br></br>
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                placeholder="password"
-                onChange={this.onChange.bind(this)}
-              />
-              <br></br>
-              <button className="bn draw-border">Se connecter</button>
-              <br></br>
-              <Link className="close draw-border" to="./Home">
-                Annuler
-              </Link>
-            </div>
-          </form>
-        </div>
+        {this.state.item && (
+          <div className="buyFormContent">
+            <form>
+              <div className="top">
+                <h2>
+                  {"Formulaire d'achat de l'article suivant : \n" +
+                    this.state.item.title}
+                </h2>
+              </div>
+              <div className="bottom">
+                <div className="bottomLeft">
+                  <ItemCard item={this.state.item} />
+                </div>
+                <div className="bottomRight">
+                  <input
+                    type="email"
+                    name="email"
+                    value={this.state.email}
+                    placeholder="email"
+                    onChange={this.onChange.bind(this)}
+                  />
+                  <button className="bn draw-border">Se connecter</button>
+                  <Link className="close draw-border" to="./Home">
+                    Annuler
+                  </Link>
+                </div>
+                {/* end bottomRight */}
+              </div>
+              {/* end bottom */}
+            </form>
+          </div>
+        )}
       </div>
     );
   }
