@@ -8,6 +8,9 @@ import {
   getRessources,
 } from "../service/api_services";
 
+import "../screen/Button.scss"
+import "../screen/Editor.css";
+
 export default class FormPost extends React.Component {
   constructor(props) {
     super(props);
@@ -104,61 +107,44 @@ export default class FormPost extends React.Component {
   render() {
     return (
       <form>
-        
-
-         
-<label>Photo du produit  </label>
-<br/>
-            <input
-              className="choisir un fichier"
-              type="file"
-              accept="image/*"
-              onChange={this.handleFileChange.bind(this)}
-            />
-          
-          
-          <br/>
-          <label>Nom du produit  </label>
-          <br/>
-            <input
-              className="title"
-              name="title"
-              value={this.state.title}
-              onChange={this.onChange.bind(this)}
-              placeholder="saisir le nom du produit"
-            />
-               <br/>
-          <label>Description du produit</label>
-          <br/>
-            <input
-              className="description"
-              name="description"
-              value={this.state.description}
-              onChange={this.onChange.bind(this)}
-              placeholder="saisir la description du produit"
-            />
-   <br/>
-        <label>Prix du produit </label>
-          <br/>
-            <input
-              className="price"
-              name="price"
-              type="number"
-              value={this.state.price}
-              onChange={this.onChange.bind(this)}
-              placeholder="saisir le prix en euro (€)"
-            />
-
-         
-      
-<br/>
-<br/>
-          <button
-            className="validate"
-            name="validate"
-            onClick={(e) => this.save(e)}
-          >
-            Valider la vente
+        <label>Photo du produit</label>
+        <input
+          className="bn draw-border"
+          type="file"
+          accept="image/*"
+          placeholder="Choisir une image"
+          onChange={this.handleFileChange.bind(this)}
+        />
+        <input
+          className="title"
+          type="text"
+          name="title"
+          value={this.state.title}
+          onChange={this.onChange.bind(this)}
+          placeholder="Saisir le nom du produit"
+        />
+        <input
+          className="description"
+          type="text"
+          name="description"
+          value={this.state.description}
+          onChange={this.onChange.bind(this)}
+          placeholder="Saisir la description du produit"
+        />
+        <input
+          className="price"
+          name="price"
+          type="number"
+          value={this.state.price}
+          onChange={this.onChange.bind(this)}
+          placeholder="Saisir le prix en euro (€)"
+        />
+        <button
+          className="bn draw-border"
+          name="validate"
+          onClick={(e) => this.save(e)}
+        >
+          Valider la mise en vente
           </button>
       </form>
     );
