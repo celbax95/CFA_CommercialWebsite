@@ -5,7 +5,12 @@ import "./ItemCard.css";
 export default function ItemCard(props) {
   let item = props.item;
 
-  console.log(item);
+  let image = "/logo192.png";
+  try {
+    if (item.image[0]) {
+      image = item.image[0];
+    }
+  } catch (e) {}
 
   return (
     <div
@@ -21,7 +26,7 @@ export default function ItemCard(props) {
         </div>
 
         <div className="middle">
-          <img alt="ItemImage" width="192" height="192" src={"/logo192.png"} />
+          <img alt="ItemImage" width="192" height="192" src={image} />
         </div>
 
         <div className="bottom">
