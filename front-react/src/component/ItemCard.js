@@ -5,7 +5,7 @@ import "./ItemCard.css";
 export default function ItemCard(props) {
   let item = props.item;
 
-  let image = "/logo192.png";
+  let image = "/imageNotFound.png";
   try {
     if (item.image[0]) {
       image = item.image[0];
