@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { onConnect } from '../store/actions/userActions';
 import { login, createRessource } from '../service/api_services';
-import './SignUp.css';
-import './SignUp.scss';
+import './Editor.css';
+import './Button.scss';
 import { Link } from "react-router-dom";
 
 
@@ -13,8 +13,8 @@ class Login extends React.Component {
 
     constructor(props) {
         super(props)
-        if(!props.data){
-            this.state={userName:"", email:"",  password:""}
+        if (!props.data) {
+            this.state = { userName: "", email: "", password: "" }
         }
     }
 
@@ -36,57 +36,52 @@ class Login extends React.Component {
         });
     }
 
-    save(e){
+    save(e) {
         e.preventDefault();
         let userData = Object.assign({}, this.state);
-        if(!this.props.data){
-            createRessource("user", userData).then(result=>{
+        if (!this.props.data) {
+            createRessource("user", userData).then(result => {
                 alert("Enregistrement éffectué.");
                 // this.props.refresh();
                 //this.props.onHide();
             });
-        }else{
-                alert("Utilisateur déjà enregistré");
-                this.props.refresh();
-                this.props.onHide();
+        } else {
+            alert("Utilisateur déjà enregistré");
+            this.props.refresh();
+            this.props.onHide();
         }
     }
 
     render() {
         return (
             <div className="row" style={{ flexDirection: "column" }}>
-                <p> 
                     {/* div 100% (flex) form margin auto */}
-                <form style={{
-                    display: "flex", flexDirection: "column",
-                    alignSelf: "center", margin: "60px 0px"
-                }} className="SignUpForm">
-                    <div>
-                        <h2>Inscription</h2>
-                        <input type="text"
-                            name="userName"
-                            value={this.state.userName}
-                            placeholder="Nom d'utilisateur"
-                            onChange={this.onChange.bind(this)} />
-                        <br></br>
-                        <input type="email"
-                            name="email"
-                            value={this.state.email}
-                            placeholder="email"
-                            onChange={this.onChange.bind(this)} />
-                        <br></br>
-                        <input type="password"
-                            name="password"
-                            value={this.state.password}
-                            placeholder="Mot de passe"
-                            onChange={this.onChange.bind(this)} />
-                        <br></br>
-                        <button className="bn draw-border" onClick={this.save.bind(this)}>
-                            Inscription</button>
-                        <br></br>
-                        <Link className="close draw-border" to="./Home">Annuler</Link>
-                    </div>
-                </form></p>
+                    <form className="connexionForm" 
+                    style={{
+                        display: "flex", flexDirection: "column"
+                    }} >
+                        <div className="connexionFields">
+                            <h2>Inscription</h2>
+                            <input type="text"
+                                name="userName"
+                                value={this.state.userName}
+                                placeholder="Nom d'utilisateur"
+                                onChange={this.onChange.bind(this)} />
+                            <input type="email"
+                                name="email"
+                                value={this.state.email}
+                                placeholder="email"
+                                onChange={this.onChange.bind(this)} />
+                            <input type="password"
+                                name="password"
+                                value={this.state.password}
+                                placeholder="Mot de passe"
+                                onChange={this.onChange.bind(this)} />
+                            <button className="bn draw-border" onClick={this.save.bind(this)}>
+                                Inscription</button>
+                            <Link className="close draw-border" to="./Home">Annuler</Link>
+                        </div>
+                    </form>
             </div>
         );
     }

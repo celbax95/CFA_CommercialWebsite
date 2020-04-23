@@ -52,7 +52,7 @@ function NavBar(props) {
         props.isLogin ? (
           <a class="nav-item" onClick={() => {
             props.disconnect();
-            window.location.href = "/Login";
+            window.location.href = "/Home";
           }}>Déconnexion</a>
         ) : (<a href="/login" class="nav-item">Connexion</a>)
       }

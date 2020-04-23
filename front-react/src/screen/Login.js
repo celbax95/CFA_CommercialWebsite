@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { onConnect } from '../store/actions/userActions';
 import { login } from '../service/api_services';
-import './Login.css';
-import './Login.scss';
+import './Editor.css';
+import './Button.scss';
 import { Link } from "react-router-dom";
 
 const crypto = require("crypto");
@@ -35,31 +35,26 @@ class Login extends React.Component {
     render() {
         return (
             <div className="row" style={{ flexDirection: "column" }}>
-                <p> 
-                <form style={{
-                    display: "flex", flexDirection: "column",
-                    alignSelf: "center", margin: "60px 0px"
-                }}>
-                    <div>
+                <form className="connexionForm" style={{
+                        display: "flex", flexDirection: "column"
+                    }}>
+                    <div className="connexionFilds">
                         <h2>Identification</h2>
                         <input type="email"
                             name="email"
                             value={this.state.email}
                             placeholder="email"
                             onChange={this.onChange.bind(this)} />
-                        <br></br>
                         <input type="password"
                             name="password"
                             value={this.state.password}
                             placeholder="Mot de passe"
                             onChange={this.onChange.bind(this)} />
-                        <br></br>
                         <button className="bn draw-border" onClick={this.connect.bind(this)}>
                             Se connecter</button>
-                        <br></br>
                         <Link className="close draw-border" to="./Home">Annuler</Link>
                     </div>
-                </form></p>
+                </form>
             </div>
         );
     }
