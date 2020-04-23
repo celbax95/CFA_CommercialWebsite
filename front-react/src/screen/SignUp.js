@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { onConnect } from '../store/actions/userActions';
-import { login } from '../service/api_services';
+import { login, createRessource } from '../service/api_services';
 import './SignUp.css';
 import './SignUp.scss';
 import { Link } from "react-router-dom";
@@ -13,8 +13,6 @@ class Login extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = { userName: "", email: "", password: "" }
-
         if(!props.data){
             this.state={userName:"", email:"",  password:""}
         }
@@ -31,10 +29,27 @@ class Login extends React.Component {
     connect(e) {
         e.preventDefault();
         let postData = { userName: this.state.userName, email: this.state.email, password: this.encodedPassword() };
+        // console.log(this.state.userName);
         login(postData).then(result => {
             this.props.onConnect(result.response);
             window.location = "/Home";
         });
+    }
+
+    save(e){
+        e.preventDefault();
+        let userData = Object.assign({}, this.state);
+        if(!this.props.data){
+            createRessource("user", userData).then(result=>{
+                alert("Enregistrement éffectué.");
+                // this.props.refresh();
+                //this.props.onHide();
+            });
+        }else{
+                alert("Utilisateur déjà enregistré");
+                this.props.refresh();
+                this.props.onHide();
+        }
     }
 
     render() {
@@ -49,8 +64,8 @@ class Login extends React.Component {
                     <div>
                         <h2>Inscription</h2>
                         <input type="text"
-                            name="nickname"
-                            value={this.state.email}
+                            name="userName"
+                            value={this.state.userName}
                             placeholder="Nom d'utilisateur"
                             onChange={this.onChange.bind(this)} />
                         <br></br>
@@ -66,8 +81,7 @@ class Login extends React.Component {
                             placeholder="Mot de passe"
                             onChange={this.onChange.bind(this)} />
                         <br></br>
-                        
-                        <button className="bn draw-border" onClick={this.connect.bind(this)}>
+                        <button className="bn draw-border" onClick={this.save.bind(this)}>
                             Inscription</button>
                         <br></br>
                         <Link className="close draw-border" to="./Home">Annuler</Link>

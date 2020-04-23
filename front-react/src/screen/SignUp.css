@@ -11,3 +11,7 @@
     position: fixed;
     margin-left: 400px;
 }
+
+.close{
+    text-decoration: none;
+}
