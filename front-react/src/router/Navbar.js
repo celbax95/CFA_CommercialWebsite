@@ -45,7 +45,7 @@ function NavBar(props) {
       <a href="/Home" class="nav-item is-active" active-color="orange" >Accueil</a>
       {
         props.isLogin ? (
-          <a href="/#" class="nav-item">Vendre</a>
+          <a href="/post/postitem" class="nav-item">Vendre</a>
         ) : (<a href="/signup" class="nav-item">Inscription</a>)
       }
       {

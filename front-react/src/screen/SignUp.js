@@ -42,20 +42,15 @@ class Login extends React.Component {
         if (!this.props.data) {
             createRessource("user", userData).then(result => {
                 alert("Enregistrement éffectué.");
-                // this.props.refresh();
-                //this.props.onHide();
             });
         } else {
             alert("Utilisateur déjà enregistré");
-            this.props.refresh();
-            this.props.onHide();
         }
     }
 
     render() {
         return (
             <div className="row" style={{ flexDirection: "column" }}>
-                    {/* div 100% (flex) form margin auto */}
                     <form className="connexionForm" 
                     style={{
                         display: "flex", flexDirection: "column"
@@ -77,9 +72,11 @@ class Login extends React.Component {
                                 value={this.state.password}
                                 placeholder="Mot de passe"
                                 onChange={this.onChange.bind(this)} />
+                                <div className="connexionButton">
                             <button className="bn draw-border" onClick={this.save.bind(this)}>
                                 Inscription</button>
                             <Link className="close draw-border" to="./Home">Annuler</Link>
+                            </div>
                         </div>
                     </form>
             </div>
