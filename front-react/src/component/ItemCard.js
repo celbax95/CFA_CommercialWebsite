@@ -15,7 +15,7 @@ export default function ItemCard(props) {
   return (
     <div
       onClick={function () {
-        window.location = "/item/" + item._id;
+        window.location = "/buy/" + item._id;
       }}
       className={"itemCard" + (props.className ? " " + props.className : "")}
     >
