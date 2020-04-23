@@ -1,14 +1,13 @@
 .homeContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: auto;
-  width: 80%;
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 .homeContent > .item {
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-.homeContent > .item:last-child {
-  margin-right: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 30px;
 }
