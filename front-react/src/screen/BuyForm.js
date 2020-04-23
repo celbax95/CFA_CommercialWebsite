@@ -16,6 +16,14 @@ class BuyFormClass extends React.Component {
   constructor(props) {
     super(props);
 
+    if (!props.user) {
+      window.location = "/login";
+    }
+
+    if (!props.id) {
+      window.location = "/";
+    }
+
     this.state = {
       itemId: props.id,
       user: props.user,

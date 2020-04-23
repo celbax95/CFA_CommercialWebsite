@@ -18,15 +18,6 @@ export default class Home extends React.Component {
       if (result.length > 0) {
         let items = result.slice();
 
-        for (let i = 0; i < 10; i++) {
-          items.push({
-            price: 100.2,
-            title: "ItemTitle",
-            state: "mauvais",
-            seller: { name: "JhonLeNon" },
-          });
-        }
-
         this.setState({
           items: items,
         });

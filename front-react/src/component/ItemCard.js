@@ -5,12 +5,17 @@ import "./ItemCard.css";
 export default function ItemCard(props) {
   let item = props.item;
 
-  console.log(item);
+  let image = "/imageNotFound.png";
+  try {
+    if (item.image[0]) {
+      image = item.image[0];
+    }
+  } catch (e) {}
 
   return (
     <div
       onClick={function () {
-        window.location = "/item/" + item._id;
+        window.location = "/buy/" + item._id;
       }}
       className={"itemCard" + (props.className ? " " + props.className : "")}
     >
@@ -21,7 +26,7 @@ export default function ItemCard(props) {
         </div>
 
         <div className="middle">
-          <img alt="ItemImage" width="192" height="192" src={"/logo192.png"} />
+          <img alt="ItemImage" width="192" height="192" src={image} />
         </div>
 
         <div className="bottom">
