@@ -150,8 +150,12 @@
 }
 
 .draw-border {
-    @include close-border-drawing(#858585, rgb(66, 66, 66), 4px, bottom, right);
+    @include close-border-drawing(#858585, rgb(211, 120, 0), 4px, bottom, right);
 }
+
+// .draw-border {
+//     @include close-border-drawing(#858585, rgb(66, 66, 66), 4px, bottom, right);
+// }
 
 //=== Button styling, semi-ignore
 .close {
