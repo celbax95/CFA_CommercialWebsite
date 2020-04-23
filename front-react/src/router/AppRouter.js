@@ -38,7 +38,7 @@ function AppRouteur(props) {
       <Switch>
         <Route path="/login" children={<Login />} />
         <Route path="/signUp" children={<SignUp />} />
-        <Route path="/buy/:id" component={<BuyForm />}>
+        <Route path="/buy/:id" children={<BuyForm />}>
           <BuyForm user={user} />
         </Route>
         <Route path="/">
