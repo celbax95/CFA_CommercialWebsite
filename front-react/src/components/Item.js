@@ -7,6 +7,7 @@ export default function Item(props) {
             <h2>{props.data.title}</h2>
             <h5>{props.data.description}</h5>
             <p>{props.data.state}</p>
+            <p>{props.data._id}</p>
         </a>
     );
 }

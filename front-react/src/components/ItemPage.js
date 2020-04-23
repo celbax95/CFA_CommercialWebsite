@@ -1,6 +1,8 @@
 import React from 'react';
 import { getRessource } from '../service/api_services';
 import { useParams } from "react-router-dom";
+import '../screen/Editor.css';
+import '../screen/Button.scss';
 import {Button, Card, CardContent, CardHeader, CardMedia, CardActions, ButtonGroup, Typography, CardActionArea} from "@material-ui/core";
 import './ItemPage.css';
 
@@ -29,12 +31,12 @@ export default class ItemFullPage extends React.Component {
         return (
             <div className="row" style={{flexDirection:"column"}}>
                 {this.state.selectedPost?
-                    <Card style={{ marginLeft: 200, marginRight: 200, marginTop: 20, marginBottom: 10}}>
-                        <CardActionArea>
-                            <CardContent>
+                    <div style={{ marginLeft: 200, marginRight: 200, marginTop: 20, marginBottom: 10}}>
+                        <div>
+                            <div>
                                 <img src={this.state.selectedPost.image}/>
-                            </CardContent>
-                            <CardContent>
+                            </div>
+                            <div>
                                 <Typography gutterBottom variant="h5" component="h2">
                                     {this.state.selectedPost.title}
                                 </Typography>
@@ -42,9 +44,9 @@ export default class ItemFullPage extends React.Component {
                                     {this.state.selectedPost.description}
                                 </Typography>
                                 <span>Etat: {this.state.selectedPost.state}</span>
-                            </CardContent>
-                        </CardActionArea>
-                        <CardActions style={{display: "flex", justifyContent: "space-between"}}>
+                            </div>
+                        </div>
+                        <div style={{display: "flex", justifyContent: "space-between"}}>
                             <ButtonGroup variant="text" >
                                 <Button onClick={function () {
                                     window.location = "/home";
@@ -52,13 +54,13 @@ export default class ItemFullPage extends React.Component {
                                     Retour
                                 </Button>
                                 <Button color="primary" onClick={function () {
-                                    window.location = "/buy/" + this.state.selectedPost._id;
+                                    window.location = "/buy/${this.state.selectedPost._id}";
                                 }}>
                                     Commander
                                 </Button>
                             </ButtonGroup>
-                        </CardActions>
-                    </Card>
+                        </div>
+                    </div>
 
 
                     : <div style={{flexDirection:"column"}}>

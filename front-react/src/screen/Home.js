@@ -3,7 +3,7 @@ import React from "react";
 import { getRessources } from "../service/api_services";
 
 import ItemCard from "../component/ItemCard";
-import CategoryCard from "../component/CategoryCard";
+//import CategoryCard from "../component/CategoryCard";
 
 import "./Home.css";
 
