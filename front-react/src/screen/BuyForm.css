@@ -1,0 +1,32 @@
+form.buyForm {
+  margin-top: 50px;
+}
+
+form.buyForm > .bottom {
+  display: flex;
+  flex-direction: row;
+  margin-top: 45px;
+}
+
+form.buyForm > .bottom .bottomLeft {
+  flex: 1;
+}
+
+form.buyForm > .bottom .bottomRight {
+  flex: 3;
+}
+
+form.buyForm > .bottom .buy {
+  margin-right: 10px;
+}
+
+.buyInstructions {
+  margin-top: 35px;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 650px) {
+  form.buyForm > .bottom .bottomLeft {
+    display: none;
+  }
+}

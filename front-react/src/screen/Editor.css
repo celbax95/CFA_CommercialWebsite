@@ -38,4 +38,5 @@ input[type="email"], input[type="password"], input[type="text"] {
 
 h2 {
     letter-spacing: 0.05em;
+    color: rgb(231, 132, 1);
 }

@@ -36,10 +36,12 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div className="homeContent">
-        {this.state.items.map((item, index) => {
-          return <ItemCard key={index} className="item" item={item} />;
-        })}
+      <div className="home">
+        <div className="homeContent">
+          {this.state.items.map((item, index) => {
+            return <ItemCard key={index} className="item" item={item} />;
+          })}
+        </div>
       </div>
     );
   }
