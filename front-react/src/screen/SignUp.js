@@ -13,7 +13,11 @@ class Login extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = { email: "", password: "" }
+        this.state = { userName: "", email: "", password: "" }
+
+        if(!props.data){
+            this.state={userName:"", email:"",  password:""}
+        }
     }
 
     onChange(e) {
@@ -26,7 +30,7 @@ class Login extends React.Component {
 
     connect(e) {
         e.preventDefault();
-        let postData = { email: this.state.email, password: this.encodedPassword() };
+        let postData = { userName: this.state.userName, email: this.state.email, password: this.encodedPassword() };
         login(postData).then(result => {
             this.props.onConnect(result.response);
             window.location = "/Home";
@@ -37,6 +41,7 @@ class Login extends React.Component {
         return (
             <div className="row" style={{ flexDirection: "column" }}>
                 <p> 
+                    {/* div 100% (flex) form margin auto */}
                 <form style={{
                     display: "flex", flexDirection: "column",
                     alignSelf: "center", margin: "60px 0px"
