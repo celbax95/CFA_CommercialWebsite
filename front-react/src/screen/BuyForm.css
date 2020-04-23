@@ -1,0 +1,9 @@
+.buyForm {
+  width: 100%;
+}
+
+form {
+  position: static;
+  margin: auto;
+  display: inline-block;
+}
