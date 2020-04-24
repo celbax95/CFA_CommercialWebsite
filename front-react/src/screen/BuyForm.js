@@ -44,18 +44,20 @@ class BuyFormClass extends React.Component {
         }
       });
 
-      getRessource("address", this.state.user.address).then((result) => {
-        if (result) {
-          this.setState({
-            address:
-              result.addressLine +
-              ", " +
-              result.codePostal +
-              ", " +
-              result.city,
-          });
-        }
-      });
+      if (this.state.user.address) {
+        getRessource("address", this.state.user.address).then((result) => {
+          if (result.addressLine) {
+            this.setState({
+              address:
+                result.addressLine +
+                ", " +
+                result.codePostal +
+                ", " +
+                result.city,
+            });
+          }
+        });
+      }
     }
   }
 
