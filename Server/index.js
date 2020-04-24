@@ -1,3 +1,4 @@
+const path = require('path');
 let express = require("express"),
   app = express(),
   http = require("http").createServer(app), // build http server on top of the express one
@@ -34,6 +35,7 @@ mongoose.connect(
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(cors());
 
 let useAuthentificate = false;

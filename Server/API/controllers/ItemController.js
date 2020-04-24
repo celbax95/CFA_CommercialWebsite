@@ -17,8 +17,7 @@ exports.read_a_item = function (req, res) {
 
 exports.create_a_item = function (req, res) {
     let data = req.body;
-    data.category = data.category === "null" ? null : data.category;
-    let new_item = new Item(data);
+    let new_item = new Item({...data});
     new_item.save(function (err, item) {
         if (err) res.send(err);
         else res.json(item);

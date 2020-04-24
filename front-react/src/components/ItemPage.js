@@ -31,8 +31,8 @@ export default class ItemFullPage extends React.Component {
         return (
             <div className="row" style={{flexDirection:"column"}}>
                 {this.state.selectedPost?
-                    <div style={{ marginLeft: 200, marginRight: 200, marginTop: 20, marginBottom: 10}}>
-                        <div>
+                    <div className="pageCard" style={{ marginLeft: 200, marginRight: 200, marginTop: 20, marginBottom: 10}}>
+                        <div className="pageCardContent">
                             <div>
                                 <img src={this.state.selectedPost.image}/>
                             </div>
@@ -46,9 +46,9 @@ export default class ItemFullPage extends React.Component {
                                 <span>Etat: {this.state.selectedPost.state}</span>
                             </div>
                         </div>
-                        <div style={{display: "flex", justifyContent: "space-between"}}>
-                            <ButtonGroup variant="text" >
-                                <Button onClick={function () {
+                        <div className="bottom" style={{display: "flex", justifyContent: "space-between"}}>
+
+                            <Button onClick={function () {
                                     window.location = "/home";
                                 }}>
                                     Retour
@@ -58,7 +58,6 @@ export default class ItemFullPage extends React.Component {
                                 }}>
                                     Commander
                                 </Button>
-                            </ButtonGroup>
                         </div>
                     </div>
 

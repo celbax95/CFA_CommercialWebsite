@@ -4,13 +4,8 @@ import "./Button.scss";
 import "./BuyForm.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import {
-  getRessource,
-  deleteRessource,
-  updateRessource,
-} from "../service/api_services";
-import axios from "axios";
-import ItemCard from "../component/ItemCard";
+import { getRessource, updateRessource } from "../service/api_services";
+import ItemCard from "../components/ItemCard";
 
 class BuyFormClass extends React.Component {
   constructor(props) {
@@ -32,6 +27,8 @@ class BuyFormClass extends React.Component {
       email: props.user.email,
       address: "",
     };
+
+    console.log(this.state);
   }
 
   componentDidMount() {

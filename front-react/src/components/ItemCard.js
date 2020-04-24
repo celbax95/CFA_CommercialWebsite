@@ -6,16 +6,14 @@ export default function ItemCard(props) {
   let item = props.item;
 
   let image = "/imageNotFound.png";
-  try {
-    if (item.image[0]) {
-      image = item.image[0];
-    }
-  } catch (e) {}
+  try{
+      image = item.image;
+  } catch (e) { console.log(e);}
 
   return (
     <div
       onClick={function () {
-        window.location = "/buy/" + item._id;
+        window.location = "/item/" + item._id;
       }}
       className={"itemCard" + (props.className ? " " + props.className : "")}
     >

@@ -40,15 +40,11 @@ function AppRouteur(props) {
       <Switch>
         <Route path="/login" children={<Login/>} />
         <Route path="/signUp" children={<SignUp />} />
-<<<<<<< HEAD
         <Route path="/item/:id" children={<Item/>} />
         <Route path="/buy/:id" children={<BuyForm />}>
           <BuyForm user={user} />
         </Route>
-=======
         <Route path="/post/:id" children={<Post/>} />
-
->>>>>>> origin/venteform
         <Route path="/">
           <Route path="/user">
             <User isUser={user} />

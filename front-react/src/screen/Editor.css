@@ -38,9 +38,7 @@ input[type="email"], input[type="password"], input[type="text"], input[type="num
 
 h2 {
     letter-spacing: 0.05em;
-<<<<<<< HEAD
     color: rgb(231, 132, 1);
-=======
 }
 
 label{
@@ -50,5 +48,4 @@ label{
     color: rgb(66, 66, 66);
     letter-spacing: 0.05rem;
     margin-right: 30px;
->>>>>>> origin/venteform
 }
