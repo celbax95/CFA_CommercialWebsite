@@ -22,7 +22,7 @@ form {
     margin-bottom: -10px;
 }
 
-input[type="email"], input[type="password"], input[type="text"] {
+input[type="email"], input[type="password"], input[type="text"], input[type="number"] {
     width: 80%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -44,4 +44,11 @@ input[type="email"], input[type="password"], input[type="text"] {
 h2 {
     letter-spacing: 0.05em;
     color: rgb(231, 132, 1);
+}
+
+label{
+    margin-right: 30px;
+    font-size: 1.2em;
+    letter-spacing: 0.05rem;
+    font-weight: bold;
 }

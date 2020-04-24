@@ -8,6 +8,7 @@ import Home from "../screen/Home";
 import User from "../screen/UserProfil";
 import SignUp from "../screen/SignUp";
 import BuyForm from "../screen/BuyForm.js";
+import Post from "../screen/Post";
 
 import { connect } from "react-redux";
 import openSocket from "socket.io-client";
@@ -41,6 +42,7 @@ function AppRouteur(props) {
         <Route path="/buy/:id" children={<BuyForm />}>
           <BuyForm user={user} />
         </Route>
+        <Route path="/post/:id" children={<Post/>} />
         <Route path="/">
           <Route path="/user">
             <User isUser={user} />
